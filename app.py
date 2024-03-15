@@ -52,6 +52,18 @@ def main():
                     except Exception as e:
                         st.error(f"Error loading file: {e}")
 
+                # Display the entire row of data as CSV-style view
+                if data is not None:
+                    st.subheader("Entire Row Data:")
+                    st.write(data)
+
+                    # Allow user to select rows
+                    selected_rows = st.slider("Select Rows", 0, len(data)-1, (0, len(data)-1))
+
+                    if selected_rows[1] - selected_rows[0] < len(data):
+                        st.subheader("Selected Rows:")
+                        st.write(data.iloc[selected_rows[0]:selected_rows[1] + 1])
+
 
 if __name__ == "__main__":
     main()
