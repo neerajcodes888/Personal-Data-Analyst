@@ -66,7 +66,12 @@ def main():
                 if data is not None:
                     fig = visualize_data(data, visualization_type)
                     if fig:
-                        st.plotly_chart(fig)
+                        # Save plot as image
+                        image_path = "plot_image.png"
+                        fig.write_image(image_path)
+
+                        # Display the saved image
+                        st.image(image_path)
 
 if __name__ == "__main__":
     main()
