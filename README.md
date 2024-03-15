@@ -1,5 +1,7 @@
 # Query Spreadsheet
 
+![Query-With-Spreadsheet](https://socialify.git.ci/neerajcodes888/Query-With-Spreadsheet/image?description=1&descriptionEditable=A%20lightweight%20Python%20script%20for%20integrating%20Excel%20(.xlsx)%20and%20CSV%20file%20uploading%20%0A%20%20functionality%20into%20web%20applications.%20It%20provides%20a%20simple%20interface%20for%20users%20&font=Jost&language=1&name=1&owner=1&pattern=Solid&theme=Dark)
+
 The Query Spreadsheet is a tool developed using LLM (Large Language Model), GenAI, and a web application built with Streamlit. It enables users to query existing data from CSV, XLS, and XLSX files using natural language.
 
 ## Table of Contents
