@@ -49,3 +49,10 @@ To run the Query Spreadsheet locally, follow these steps:
 - langchain_google_genai
 - chromadb
 - tabulate
+
+5. Run the Streamlit application:
+
+   ```bash
+   streamlit run app.py
+   ```
+   
