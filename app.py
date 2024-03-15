@@ -32,3 +32,10 @@ data = st.sidebar.file_uploader("Upload Your CSV",type="csv")
 lida = Manager(text_gen = llm("openai")) 
 textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
 summary = lida.summarize(data, summary_method="default", textgen_config=textgen_config)
+user_query = "Which country has the most GDP per capita?"
+charts = lida.visualize(summary=summary, goal=user_query, textgen_config=textgen_config)  
+charts[0]
+
+image_base64 = charts[0].raster
+
+save_image(image_base64, "filename1.png")
