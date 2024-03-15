@@ -17,3 +17,8 @@ def base64_to_image(base64_string):
     # Use BytesIO to convert the byte data to image
     return Image.open(BytesIO(byte_data))
 
+def save_image(base64_str, save_path):
+    img = base64_to_image(base64_str)
+    img.save(save_path)
+    print(f"Image saved at {save_path}")
+
