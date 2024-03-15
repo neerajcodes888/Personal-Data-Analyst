@@ -70,3 +70,17 @@ Watch the video demonstration to see how the Query Spreadsheet works in action.
 
 Access the [live demo](https://ask-to-spreadsheet.onrender.com/) of the Query Spreadsheet to start querying data instantly.
 
+## Conclusion
+
+The Query Spreadsheet offers an intuitive interface for users to interact with their data seamlessly, making querying data more accessible and efficient.
+
+## Contributions
+
+The Query Spreadsheet was developed by [Insert Names of Contributors]. Contributions were made in various aspects including development, testing, and documentation.
+
+## Future of LLM and GenAI
+
+As technology progresses, the capabilities of Large Language Models (LLMs) and Generative Artificial Intelligence (GenAI) are expected to expand further. With advancements in natural language processing and AI research, we anticipate improved accuracy, efficiency, and versatility in applications like the Query Spreadsheet.
+
+## License
+The Query Spreadsheet is licensed under [Insert License]. Refer to the LICENSE file for more details.
