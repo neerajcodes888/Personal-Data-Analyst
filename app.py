@@ -22,3 +22,5 @@ def save_image(base64_str, save_path):
     img.save(save_path)
     print(f"Image saved at {save_path}")
 
+lida = Manager(text_gen = llm("openai")) 
+textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
