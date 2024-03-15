@@ -31,3 +31,13 @@ To run the Query Spreadsheet locally, follow these steps:
    ```bash
    git clone https://github.com/your/repository.git
    ```
+2. Navigate to the project directory:
+
+   ```bash
+   cd Query-With-Spreadsheet
+   ```
+3. Install the dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
