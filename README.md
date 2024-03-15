@@ -1,2 +1,33 @@
-# Personal-Data-Analyst
-soon....
+# Query Spreadsheet
+
+The Query Spreadsheet is a tool developed using LLM (Large Language Model), GenAI, and a web application built with Streamlit. It enables users to query existing data from CSV, XLS, and XLSX files using natural language.
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Usage](#usage)
+3. [Installation](#installation)
+4. [Video Demo](#video-demo)
+5. [Demo Link](#demo-link)
+6. [Conclusion](#conclusion)
+7. [Contributions](#contributions)
+8. [License](#license)
+9. [Future of LLM and GenAI](#future-of-llm-and-genai)
+
+## Introduction
+The Query Spreadsheet simplifies the process of querying data from CSV, XLS, and XLSX files by leveraging natural language processing capabilities. This repository contains the source code for the web application hosted on Render.
+
+## Usage
+To use the Query Spreadsheet:
+
+- Upload your CSV, XLS, or XLSX file containing the data.
+- Formulate your query in natural language.
+- The tool will process your query and provide relevant results based on the data.
+
+## Installation
+To run the Query Spreadsheet locally, follow these steps:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your/repository.git
+   ```
