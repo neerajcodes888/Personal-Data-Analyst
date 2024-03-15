@@ -52,17 +52,19 @@ def main():
                     except Exception as e:
                         st.error(f"Error loading file: {e}")
 
-                # Display the entire row of data as CSV-style view
+                # Display the table with rows that match the user's condition
                 if data is not None:
-                    st.subheader("Entire Row Data:")
-                    st.write(data)
-
-                    # Allow user to select rows
-                    selected_rows = st.slider("Select Rows", 0, len(data)-1, (0, len(data)-1))
-
-                    if selected_rows[1] - selected_rows[0] < len(data):
-                        st.subheader("Selected Rows:")
-                        st.write(data.iloc[selected_rows[0]:selected_rows[1] + 1])
+                    st.subheader("Filtered Data:")
+                    
+                    # Allow user to input condition
+                    condition = st.text_input("Enter condition (e.g., column_name > 10):")
+                    
+                    if condition:
+                        try:
+                            filtered_data = data.query(condition)
+                            st.dataframe(filtered_data)
+                        except Exception as e:
+                            st.error(f"Error filtering data: {e}")
 
 
 if __name__ == "__main__":
