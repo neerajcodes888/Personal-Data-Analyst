@@ -35,7 +35,8 @@
 # save_image(image_base64, "filename1.png")
 # Assuming PandasAI is installed and configured
 from pandas_ai import PandasAI
-
+import pandas as pd;
+data = pd.read_csv("2019.csv")
 # Initialize PandasAI with your data
 ai = PandasAI(data)
 
