@@ -25,12 +25,24 @@ def main():
     file = st.sidebar.file_uploader("Upload File", type=["csv", "xls", "xlsx"])
 
     if file is None:
-        st.header("**Welcome to Ask your Spreadshit!**")
+        st.header("**Welcome to investigate into your Spreadshit!**")
         st.subheader("Upload your data file")
         st.write(
             "Please upload a CSV, XLS, or XLSX file using the file uploader on the sidebar. "
             "Once the file is uploaded, you can ask questions related to the data."
         )
+        st.markdown('Thank You!')
+        st.markdown('Neeraj Kumar')
+
+    
+        col1, col2, col3 = st.columns([1,1,1])
+        with col1:
+            
+          st.link_button("Linkdin", "https://www.linkedin.com/in/neeraj-kumar-9a75811a2")
+        with col2:
+          st.link_button("Github", "https://github.com/neerajcodes888")
+        with col3:
+          st.link_button("Kaggle", "https://www.kaggle.com/neerajdata")
     else:
         # Create a temporary file to store the uploaded data
        
