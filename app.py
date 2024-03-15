@@ -25,10 +25,5 @@ def save_image(base64_str, save_path):
 lida = Manager(text_gen = llm("openai")) 
 textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
 
-menu = st.sidebar.selectbox("Choose an option" , ["Full Analysis","Custom Analysis"])
+menu = st.sidebar("Analyze Your CSv data")
 
-if menu == 'Full Analysis':
-    st.subheader("Full Analysis of Your Uploaded Data")
-    data = st.file_uploader("Upload Your File",type="csv")
-    if data is not None:
-        path = "filename.csv"
