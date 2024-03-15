@@ -25,7 +25,7 @@ def main():
     file = st.sidebar.file_uploader("Upload File", type=["csv", "xls", "xlsx"])
 
     if file is None:
-        st.header("Welcome to Ask your Spreadshit!")
+        st.header("**Welcome to Ask your Spreadshit!**")
         st.subheader("Upload your data file")
         st.write(
             "Please upload a CSV, XLS, or XLSX file using the file uploader on the sidebar. "
