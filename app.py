@@ -16,3 +16,4 @@ def base64_to_image(base64_string):
     
     # Use BytesIO to convert the byte data to image
     return Image.open(BytesIO(byte_data))
+
