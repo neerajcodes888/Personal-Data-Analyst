@@ -1,3 +1,6 @@
 streamlit
-openai
-lida
+langchain
+langchain_experimental
+langchain_google_genai
+chromadb
+tabulate
