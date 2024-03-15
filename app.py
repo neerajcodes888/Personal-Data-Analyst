@@ -28,4 +28,5 @@ textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
 menu = st.sidebar.selectbox("Choose an option" , ["Full Analysis","Custom Analysis"])
 
 if menu == 'Full Analysis':
+    st.subheader("Full Analysis of Your Uploaded Data")
     
