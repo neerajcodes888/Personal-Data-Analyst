@@ -17,15 +17,15 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 def main():
     # Configure Streamlit page
     
-    st.set_page_config(page_title="Ask your CSV")
+    st.set_page_config(page_title="Query With Your Spreadsheet")
     
-    st.sidebar.header("Ask your CSV")
+    st.sidebar.header("Ask Questions To Your Data")
 
     # Allow the user to upload a file
     file = st.sidebar.file_uploader("Upload File", type=["csv", "xls", "xlsx"])
 
     if file is None:
-        st.header("Welcome to Ask your CSV!")
+        st.header("Welcome to Ask your Spreadshit!")
         st.subheader("Upload your data file")
         st.write(
             "Please upload a CSV, XLS, or XLSX file using the file uploader on the sidebar. "
