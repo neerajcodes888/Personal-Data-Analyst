@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import plotly.express as px
 from langchain.document_loaders.csv_loader import CSVLoader
 import tempfile
 import os
@@ -10,37 +12,21 @@ from dotenv import load_dotenv
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-# def main():
-#     st.title("Chat with CSV using Gemini Pro")
 
-#     # File Uploader
-#     uploaded_file = st.sidebar.file_uploader("Choose your CSV file", type="csv")
+def visualize_data(data, visualization_type):
+    # Convert list to DataFrame if necessary
+    if isinstance(data, list):
+        data = pd.DataFrame(data)
 
-#     if uploaded_file:
-#         temp_dir = tempfile.mkdtemp()
-#         path = os.path.join(temp_dir, uploaded_file.name)
-#         with open(path, "wb") as f:
-#             f.write(uploaded_file.getvalue())
-
-#     # Using temp_file for getting the file path as CSVLoader only accepts file path
-#     if uploaded_file is not None:
-#         with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
-#             tmp_file.write(uploaded_file.getvalue())
-#             tmp_file_path = tmp_file.name
-
-#             csv_loader = CSVLoader(
-#                 file_path=tmp_file_path, encoding="utf-8", csv_args={"delimiter": ","}
-#             )
-
-#             # Loading the data from the CSV file
-#             data = csv_loader.load()
-
-#             user_input = st.text_input("Start Chatting...")
-
-#             if user_input:
-#                 response = get_model_response(data, user_input)
-#                 st.write(response)
-
+    if visualization_type == "Line Chart":
+        fig = px.line(data, x=data.columns[0], y=data.columns[1])
+    elif visualization_type == "Bar Chart":
+        fig = px.bar(data, x=data.columns[0], y=data.columns[1])
+    elif visualization_type == "Scatter Plot":
+        fig = px.scatter(data, x=data.columns[0], y=data.columns[1])
+    else:
+        fig = None
+    return fig
 
 def main():
     # Configure Streamlit page
@@ -49,7 +35,7 @@ def main():
 
     # Allow the user to upload a CSV file
     file = st.file_uploader("Upload File", type=["csv", "xls", "xlsx"])
-    
+    visualization_type = st.selectbox("Select Visualization Type", ["Line Chart", "Bar Chart", "Scatter Plot"])
 
     if file is not None:
         # Create a temporary file to store the uploaded CSV data
@@ -72,6 +58,15 @@ def main():
                 response = agent.run(user_input)
                 st.write(response)
 
+                # Load the CSV data for visualization
+                csv_loader = CSVLoader(file_path=f.name, encoding="utf-8", csv_args={"delimiter": ","})
+                data = csv_loader.load()
+
+                # Visualize the data based on the user's selection
+                if data is not None:
+                    fig = visualize_data(data, visualization_type)
+                    if fig:
+                        st.plotly_chart(fig)
 
 if __name__ == "__main__":
     main()
