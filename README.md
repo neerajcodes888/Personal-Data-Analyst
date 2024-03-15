@@ -60,3 +60,7 @@ To run the Query Spreadsheet locally, follow these steps:
 
 
 ## Video Demo
+
+Watch the video demonstration to see how the Query Spreadsheet works in action.
+
+
