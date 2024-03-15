@@ -34,11 +34,13 @@
 
 # save_image(image_base64, "filename1.png")
 # Assuming PandasAI is installed and configured
-from pandas_ai import PandasAI
+from pandasai import PandasAI
 import pandas as pd;
 data = pd.read_csv("2019.csv")
 # Initialize PandasAI with your data
 ai = PandasAI(data)
 
+from pandasai.llm import OpenAI
+llm = OpenAI(api_token="OPEN_API_KEY")
 # Ask a question with visualization in mind
-ai.visualize("Show a histogram of the 'price' column")
+ai.visualize("how many ")
