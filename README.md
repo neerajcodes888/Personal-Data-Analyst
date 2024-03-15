@@ -55,4 +55,5 @@ To run the Query Spreadsheet locally, follow these steps:
    ```bash
    streamlit run app.py
    ```
-   
+
+6. Access the application in your web browser at  `http://localhost:8501`
