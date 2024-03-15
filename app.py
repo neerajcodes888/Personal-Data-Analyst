@@ -30,4 +30,5 @@ menu = st.sidebar.selectbox("Choose an option" , ["Full Analysis","Custom Analys
 if menu == 'Full Analysis':
     st.subheader("Full Analysis of Your Uploaded Data")
     data = st.file_uploader("Upload Your File")
-    
+    if data is not None:
+        
