@@ -41,3 +41,11 @@ To run the Query Spreadsheet locally, follow these steps:
    ```bash
    pip install -r requirements.txt
    ```
+4. The required packages are:
+
+- streamlit
+- langchain
+- langchain_experimental
+- langchain_google_genai
+- chromadb
+- tabulate
