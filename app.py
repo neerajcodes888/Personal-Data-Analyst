@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 from langchain.document_loaders.csv_loader import CSVLoader
 import tempfile
 import os
