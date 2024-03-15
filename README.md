@@ -68,5 +68,5 @@ Watch the video demonstration to see how the Query Spreadsheet works in action.
 
 ## Demo Link
 
-Access the [live demo]() of the Query Spreadsheet to start querying data instantly.
+Access the [live demo](https://ask-to-spreadsheet.onrender.com/) of the Query Spreadsheet to start querying data instantly.
 
