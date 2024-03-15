@@ -31,4 +31,4 @@ if menu == 'Full Analysis':
     st.subheader("Full Analysis of Your Uploaded Data")
     data = st.file_uploader("Upload Your File")
     if data is not None:
-        
+        path = "filename "
