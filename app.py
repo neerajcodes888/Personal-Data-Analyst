@@ -25,10 +25,10 @@ def save_image(base64_str, save_path):
 
 
 st.sidebar.header("Analyze Your CSV")
-st.sidebar.file_uploader("Upload Your CSV",type="csv")
+data = st.sidebar.file_uploader("Upload Your CSV",type="csv")
 
 
 
 lida = Manager(text_gen = llm("openai")) 
 textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
-summary = lida.summarize("2019.csv", summary_method="default", textgen_config=textgen_config)
+summary = lida.summarize(data, summary_method="default", textgen_config=textgen_config)
