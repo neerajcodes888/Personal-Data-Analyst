@@ -83,4 +83,4 @@ The Query Spreadsheet was developed by [Insert Names of Contributors]. Contribut
 As technology progresses, the capabilities of Large Language Models (LLMs) and Generative Artificial Intelligence (GenAI) are expected to expand further. With advancements in natural language processing and AI research, we anticipate improved accuracy, efficiency, and versatility in applications like the Query Spreadsheet.
 
 ## License
-The Query Spreadsheet is licensed under [Insert License]. Refer to the LICENSE file for more details.
+The Query Spreadsheet is licensed under [](https://github.com/neerajcodes888/Query-With-Spreadsheet/blob/main/LICENSE). Refer to the LICENSE file for more details.
