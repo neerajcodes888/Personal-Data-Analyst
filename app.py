@@ -13,36 +13,20 @@ load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-def visualize_data(data, visualization_type):
-    # Convert list to DataFrame if necessary
-    if isinstance(data, list):
-        data = pd.DataFrame(data)
-
-    if visualization_type == "Line Chart":
-        fig = px.line(data, x=data.columns[0], y=data.columns[1])
-    elif visualization_type == "Bar Chart":
-        fig = px.bar(data, x=data.columns[0], y=data.columns[1])
-    elif visualization_type == "Scatter Plot":
-        fig = px.scatter(data, x=data.columns[0], y=data.columns[1])
-    else:
-        fig = None
-    return fig
 
 def main():
     # Configure Streamlit page
     st.set_page_config(page_title="Ask your CSV")
     st.header("Ask your CSV")
 
-    # Allow the user to upload a CSV file
+    # Allow the user to upload a file
     file = st.file_uploader("Upload File", type=["csv", "xls", "xlsx"])
-    visualization_type = st.selectbox("Select Visualization Type", ["Line Chart", "Bar Chart", "Scatter Plot"])
 
     if file is not None:
-        # Create a temporary file to store the uploaded CSV data
-        with tempfile.NamedTemporaryFile(mode="w+", suffix=".csv", delete=False) as f:
-            # Convert bytes to a string before writing to the file
-            data_str = file.getvalue().decode("utf-8")
-            f.write(data_str)
+        # Create a temporary file to store the uploaded data
+        with tempfile.NamedTemporaryFile(mode="wb", suffix=".csv", delete=False) as f:
+            # Write the uploaded file content to the temporary file
+            f.write(file.getvalue())
             f.flush()
 
             model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.8)
@@ -58,20 +42,16 @@ def main():
                 response = agent.run(user_input)
                 st.write(response)
 
-                # Load the CSV data for visualization
-                csv_loader = CSVLoader(file_path=f.name, encoding="utf-8", csv_args={"delimiter": ","})
-                data = csv_loader.load()
+                try:
+                    # Attempt to load the data directly using Pandas
+                    data = pd.read_csv(f.name)
+                except UnicodeDecodeError:
+                    try:
+                        # Try loading as an Excel file
+                        data = pd.read_excel(f.name)
+                    except Exception as e:
+                        st.error(f"Error loading file: {e}")
 
-                # Visualize the data based on the user's selection
-                if data is not None:
-                    fig = visualize_data(data, visualization_type)
-                    if fig:
-                        # Save plot as image
-                        image_path = "plot_image.png"
-                        fig.write_image(image_path)
-
-                        # Display the saved image
-                        st.image(image_path)
 
 if __name__ == "__main__":
     main()
