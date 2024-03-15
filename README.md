@@ -63,4 +63,10 @@ To run the Query Spreadsheet locally, follow these steps:
 
 Watch the video demonstration to see how the Query Spreadsheet works in action.
 
+![spreadsheet_query](https://github.com/neerajcodes888/Query-With-Spreadsheet/assets/98253646/6a5fb9aa-1222-425b-b1ba-9d614d7e4224)
+
+
+## Demo Link
+
+Access the [live demo]() of the Query Spreadsheet to start querying data instantly.
 
