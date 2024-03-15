@@ -1,4 +1,3 @@
-import streamlit as st
 from lida import Manager, TextGenerationConfig , llm  
 from dotenv import load_dotenv
 import os
@@ -8,6 +7,7 @@ from PIL import Image
 from io import BytesIO
 
 load_dotenv()
+
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def base64_to_image(base64_string):
@@ -22,16 +22,10 @@ def save_image(base64_str, save_path):
     img.save(save_path)
     print(f"Image saved at {save_path}")
 
-
-
-st.sidebar.header("Analyze Your CSV")
-data = st.sidebar.file_uploader("Upload Your CSV",type="csv")
-
-
-
 lida = Manager(text_gen = llm("openai")) 
 textgen_config = TextGenerationConfig(n=1, temperature=0.2, use_cache=True)
-summary = lida.summarize(data, summary_method="default", textgen_config=textgen_config)
+summary = lida.summarize("2019.csv", summary_method="default", textgen_config=textgen_config)
+
 user_query = "Which country has the most GDP per capita?"
 charts = lida.visualize(summary=summary, goal=user_query, textgen_config=textgen_config)  
 charts[0]
